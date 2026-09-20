@@ -7,4 +7,4 @@ def loadlogs(file_path):
 
 
 result= loadlogs("data/sample_logs.csv")
-print(result.info())
+# print(result.info())
