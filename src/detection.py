@@ -57,13 +57,13 @@ def detect_admin_account_creation(logs):
         alert=create_admin_account_alert(row["source_ip"], row["username"], row["details"])
         alerts_ls.append(alert)
     return alerts_ls
-
-logs=loadlogs("data/sample_logs.csv")
-fail=get_failed_logins(logs)
-ipfail=count_ip(fail)
-print(ipfail)
-detect_failed_then_success(logs)
-brute_force = detect_brute_force(ipfail)
-detect_suspicious_powershell(logs)
-detect_admin_account_creation(logs)
-#print(brute_force)
+if __name__ == "__main__":
+    logs=loadlogs("data/sample_logs.csv")
+    fail=get_failed_logins(logs)
+    ipfail=count_ip(fail)
+    
+    print(detect_failed_then_success(logs))
+    print(detect_brute_force(ipfail))
+    print(detect_suspicious_powershell(logs))
+    print(detect_admin_account_creation(logs))
+    #print(brute_force)
